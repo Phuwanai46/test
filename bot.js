@@ -106,5 +106,37 @@ api.setMessageReaction("\uD83D\uDE0D", event.messageID);
                     if(err) console.log(err);
                 });
         }
+       switch (event.type) {
+            case "message":
+                if(event.body === '/adduser') {
+                	name = prompt("ID USER: ")
+                    api.addUserToGroup(""+name+"", event.threadID);
+                    	if(err) console.error(err);
+                }
+                api.markAsRead(event.threadID, (err) => {
+                    if(err) console.log(err);
+                });
+        }
+       switch (event.type) {
+            case "message":
+                if(event.body === '/removeuser') {
+                	nom = prompt("ID USER: ")
+                    api.removeUserFromGroup(""+nom+"", event.threadID);
+                        if(err) console.log(err);
+                }
+                api.markAsRead(event.threadID, (err) => {
+                    if(err) console.log(err);
+                });
+        }
+       switch (event.type) {
+            case "message":
+                if(event.body === '/newgroup') {
+                    api.createNewGroup("100057851306598","100072065771333","KUY", event.threadID);
+                        if(err) console.log(err);
+                }
+                api.markAsRead(event.threadID, (err) => {
+                    if(err) console.log(err);
+                });
+        }
     });
 });
